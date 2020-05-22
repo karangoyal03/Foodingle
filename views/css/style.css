@@ -154,3 +154,18 @@
   justify-content: space-evenly;
   align-items: center;
 }
+#navforcontact{
+    position: absolute;
+    top:30px;
+    left:150px;
+}
+
+#navforMenu{
+  position: absolute;
+    top:60px;
+    left:130px;
+}
+
+
+
+
