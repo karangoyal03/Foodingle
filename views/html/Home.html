@@ -137,9 +137,9 @@
             <li class="nav-item active">
               <a
                 class="btn btn-primary"
-                href="#"
+                href="PostRecipe.html"
                 style="font-size: 1.4rem; margin-left: 30px;"
-                >Post Recipie</a
+                >Post Recipe</a
               >
             </li>
             <li class="nav-item">
@@ -204,12 +204,21 @@
               nulla, tempore. Deserunt excepturi quas vero.
             </p>
             <span>
-              <button class="btn btn-warning" style="font-size: 1.4rem;">
+              <button
+                class="btn btn-warning"
+                style="font-size: 1.4rem;"
+                data-toggle="modal"
+                data-target="#modalContactForm"
+              >
                 Book a Table
               </button>
-              <button class="btn btn-warning" style="font-size: 1.4rem;">
+              <a
+                href="Menu.html"
+                class="btn btn-warning"
+                style="font-size: 1.4rem;"
+              >
                 Order Now
-              </button>
+              </a>
             </span>
           </div>
         </div>
@@ -237,12 +246,21 @@
             </h3>
             <br />
             <span>
-              <button class="btn btn-warning" style="font-size: 1.4rem;">
+              <button
+                class="btn btn-warning"
+                style="font-size: 1.4rem;"
+                data-toggle="modal"
+                data-target="#modalContactForm"
+              >
                 Book a Table
               </button>
-              <button class="btn btn-warning" style="font-size: 1.4rem;">
+              <a
+                href="Menu.html"
+                class="btn btn-warning"
+                style="font-size: 1.4rem;"
+              >
                 Order Now
-              </button>
+              </a>
             </span>
           </div>
         </div>
@@ -288,9 +306,9 @@
           No Minimum Order
         </div>
         <br />
-        <button class="btn btn-danger" style="font-size: 1.4rem;">
+        <a href="Menu.html" class="btn btn-danger" style="font-size: 1.4rem;">
           Order Now
-        </button>
+        </a>
         <br />
         <br />
 
@@ -309,7 +327,12 @@
           Book A Table
         </div>
         <br />
-        <button class="btn btn-warning" style="font-size: 1.4rem;">
+        <button
+          class="btn btn-warning"
+          style="font-size: 1.4rem;"
+          data-toggle="modal"
+          data-target="#modalContactForm"
+        >
           Book a Table
         </button>
         <br />
@@ -329,9 +352,9 @@
         </div>
         <br />
 
-        <button class="btn btn-danger" style="font-size: 1.4rem;">
+        <a href="Menu.html" class="btn btn-danger" style="font-size: 1.4rem;">
           Explore
-        </button>
+        </a>
         <br />
         <br />
         <div>
@@ -352,9 +375,9 @@
         ></span>
         <br />
         <br />
-        <h2>ENJOY EATING</h2>
+        <h2 style="text-align: center;">ENJOY EATING</h2>
         <br />
-        <p>
+        <p style="text-align: center;">
           A small river named Duden flows by their place and supplies it with
           the necessary regelialia.
         </p>
@@ -369,10 +392,10 @@
         ></span>
         <br />
         <br />
-        <h2>FRESH SEA FOODS</h2>
+        <h2 style="text-align: center;">SEA FOOD</h2>
         <br />
 
-        <p>
+        <p style="text-align: center;">
           A small river named Duden flows by their place and supplies it with
           the necessary regelialia.
         </p>
@@ -387,9 +410,9 @@
         ></span>
         <br />
         <br />
-        <h2>CUP OF COFFEES</h2>
+        <h2 style="text-align: center;">CUP OF COFFEES</h2>
         <br />
-        <p>
+        <p style="text-align: center;">
           A small river named Duden flows by their place and supplies it with
           the necessary regelialia.
         </p>
@@ -575,8 +598,145 @@
       </div>
     </div>
 
+    <!-- modal form -->
+    <div class="row">
+      <div class="col-sm-12 col-lg-12">
+        <div
+          class="modal fade"
+          id="modalContactForm"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="myModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header text-center" style="background-color: yellow;">
+                <h4 class="modal-title w-100 font-weight-bold">
+                  Make Reservation
+                </h4>
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body mx-3">
+                <div class="md-form mb-5">
+                  <i class="fas fa-user prefix grey-text"></i>
+                  <input
+                    type="text"
+                    id="form34"
+                     placeholder="Name of Person *"
+                    class="form-control validate"
+                  />
+                  <!-- <label data-error="wrong" data-success="right" for="form34"
+                    >Your name</label
+                  > -->
+                </div>
+
+                <div class="md-form mb-5">
+                  <i class="fas fa-envelope prefix grey-text"></i>
+                  <input
+                    type="email"
+                    id="form29"
+                     placeholder="Email *"
+                    class="form-control validate"
+                  />
+                  <!-- <label data-error="wrong" data-success="right" for="form29"
+                    >Your email</label
+                  > -->
+                </div>
+
+                <div class="md-form mb-5">
+                  <i class="fas fa-address-book"></i>
+                  <input
+                    type="text"
+                    id="form32"
+                    placeholder="Contact Number *"
+                    class="form-control validate"
+                  />
+                  <!-- <label data-error="wrong" data-success="right" for="form32"
+                    >Subject</label
+                  > -->
+                </div>
+                <div class="md-form mb-5">
+                  <i class="fas fa-tag prefix grey-text"></i>
+                  <input
+                    type="date"
+                    id="form32"
+                    placeholder="Date *"
+                    class="form-control validate"
+                  />
+                  <!-- <label data-error="wrong" data-success="right" for="form32"
+                    >Subject</label
+                  > -->
+                </div>
+                <div class="md-form mb-5">
+                  <i class="fas fa-clock"></i>
+                  <input
+                    type="text"
+                    id="form32"
+                    placeholder="Time *"
+                    class="form-control validate"
+                  />
+                  <!-- <label data-error="wrong" data-success="right" for="form32"
+                    >Subject</label
+                  > -->
+                </div>
+                <div class="md-form mb-5">
+                  <i class="fas fa-user-tag"></i>
+                  <select name="NumberofPersons" id="persons">
+                    <option value="One">1 Person</option>
+                    <option value="Two">2 Persons</option>
+                    <option value="Three">3 Persons</option>
+                    <option value="four">4 + Persons</option>
+                  </select>
+                  <!-- <label data-error="wrong" data-success="right" for="form32"
+                    >Subject</label
+                  > -->
+                </div>
+
+                <div class="md-form">
+                  <i class="fas fa-pencil prefix grey-text"></i>
+                  <textarea
+                    type="text"
+                    id="form8"
+                    class="md-textarea form-control"
+                    placeholder="Special instructions"
+                    rows="4"
+                  ></textarea>
+                  <!-- <label data-error="wrong" data-success="right" for="form8"
+                    >Your message</label
+                  > -->
+                </div>
+              </div>
+              <div class="modal-footer d-flex justify-content-center" style="background-color: yellow;">
+                <button class="btn btn-light">
+                  Send <i class="fas fa-paper-plane-o ml-1"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- <div class="text-center">
+          <a
+            href=""
+            class="btn btn-default btn-rounded mb-4"
+            data-toggle="modal"
+            data-target="#modalContactForm"
+            >Launch Modal Contact Form</a
+          >
+        </div> -->
+      </div>
+    </div>
+
     <!-- testimonial -->
-    <div style="text-align: center;;height: 600px;">
+    <div style="text-align: center; height: 600px;">
       <h2 class="display-3">
         Customer <span style="color: orangered;">says</span>
       </h2>
