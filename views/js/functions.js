@@ -10,7 +10,7 @@ function fetchmenuitembyid(id, done) {
   $.get("/api/menu", function (data) {
     let temp = 0;
     for (let i = 0; i < data.length; i++) {
-      if (data[i].id === id) {
+      if (data[i]._id === id) {
         temp = data[i];
       }
     }
@@ -27,15 +27,6 @@ function fetchmenubystartend(start, end, done) {
     done(temp);
   });
 }
-
-// function fetchbreakfast(done){
-//   $.get('/api/menu',function(data){
-//     let temp=0;
-//     for(let i=0;i<5;i++){
-//       temp=data[]
-//     }
-//   })
-// }
 
 function fetchcontact(done) {
   $.get("/api/contact", function (data) {
@@ -64,6 +55,13 @@ function fetchpostrecipe(done) {
 function fetchcartitems(done) {
   $.get("/api/cart", function (data) {
     done(data);
+  });
+}
+
+function fetchcartitembyid(id) {
+  $.get("/api/cart/delete", { _id: id }, function (data) {
+    refreshcart();
+    window.alert(data.message);
   });
 }
 
@@ -173,7 +171,7 @@ function createmenuitem(product) {
             <div class="one-forth">
                 <span class="price">₹${product.price}</span>
                 <span style="margin-left: 50px;"
-              ><button onclick="buying(event)" class="btn btn-primary">Buy Now</button></span
+              ><button data-id="${product._id}" onclick="buying(event)" class="btn btn-primary">Buy Now</button></span
             >
               </div>
             
@@ -184,41 +182,9 @@ function createmenuitem(product) {
 }
 
 function buying(event) {
-  console.log(event.target.id);
-  fetchmenuitembyid(event.target.id, createcart);
+  // console.log(event.target.id);
+  fetchmenuitembyid(event.target.getAttribute("data-id"), createcart);
 }
-
-// function createproduct(product) {
-//   return $(`
-//     <div class="menus d-flex">
-//           <div class="image">
-//             <img
-//               src="${product.image}"
-//               alt=""
-//               style="height: 100px; width: 100px; border-radius: 50%;"
-//             />
-//           </div>
-//           <div class="text">
-//             <div class="d-flex">
-//               <div class="one-half">
-//                 <h3>${product.dishname}</h3>
-//               </div>
-//               <div class="one-forth">
-//                 <span class="price">&#8377 ${product.price}</span>
-//               </div>
-//             </div>
-//             <span style="margin-left: 50px;"
-//               ><button onclick="myclick(${product.id})" class="btn btn-primary">Buy Now</button></span
-//             >
-//           </div>
-//         </div>
-//     `);
-// }
-
-// function myclick(id) {
-//   console.log(id);
-//   fetchmenuitembyid(id, createcart);
-// }
 
 function createcart(product) {
   $.post(
@@ -235,8 +201,6 @@ function createcart(product) {
   );
 }
 
-
-
 function addcart(product) {
   return $(`
   <div class="row bg-white text-info m-2">
@@ -244,7 +208,7 @@ function addcart(product) {
  <img src="${product.image}" width="200px" height="300px"> 
  </div>
   <div class="col d-flex justify-content-center">
- <div id=${product.id} class="cart_details p-3">
+ <div id=${product._id} class="cart_details p-3">
 <br>
 <div class="font-weight-bolder text-center p-2">${product.dishname}</div>
 <br>
@@ -252,37 +216,25 @@ function addcart(product) {
 <br>
 <div class="font-weight-bolder text-center p-2" style="color:blue;">&#8377 ${product.price}</div>
 <br>
-<button onclick="deletemenuitembyid(event)" class="btn btn-danger">Remove From Cart</button>
+<button dataing-id="${product._id}" onclick="deleting(event)" class="btn btn-danger">Remove From Cart</button>
 </div>
 </div>
   </div>
   `);
 }
-
-// function buying(event){
-//   console.log(event.target.parentElement.id);
-//   fet
-// }
-
 function fetchCartDone(cart_list, carts) {
   for (cart of carts) {
     cart_list.append(addcart(cart));
   }
 }
+function deleting(event) {
+  fetchcartitembyid(event.target.getAttribute("dataing-id"));
 
-
-function deletemenuitembyid(event) {
-  $.get("/api/cart/delete", {_id: event.target.parentElement.id }, (data) => {
-    refreshcart();
-    window.alert(data.message);
-  });
 }
-
 function refreshcart() {
   let cart_list = $("#cart_list");
   cart_list.empty();
   fetchcartitems((carts) => {
     fetchCartDone(cart_list, carts);
-
   });
 }
